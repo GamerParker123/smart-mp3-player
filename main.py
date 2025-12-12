@@ -340,14 +340,12 @@ class MusicPlayer:
             original_weight = meta["vote_weight"]
             adjusted_weight = self.drift_toward_one(original_weight, hours)
             adjusted_weight = self.clamp_weight(adjusted_weight)
-            meta["vote_weight"] = adjusted_weight
 
             time_score = math.log1p(max(hours, 0.1))
             score = time_score * adjusted_weight
             scores[song] = score
 
-        return scores
-
+    return scores
     def clamp_weight(self, weight):
         return min(max(weight, 0.5), 2.0)
 
