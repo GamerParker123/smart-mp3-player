@@ -345,7 +345,8 @@ class MusicPlayer:
             score = time_score * adjusted_weight
             scores[song] = score
 
-    return scores
+        return scores
+    
     def clamp_weight(self, weight):
         return min(max(weight, 0.5), 2.0)
 
